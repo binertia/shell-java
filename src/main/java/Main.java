@@ -1,7 +1,10 @@
 import java.util.Scanner;
+import java.io.File;
+
 public class Main {
     public static void main(String[] args) throws Exception {
 	     Scanner scanner = new Scanner(System.in);
+	String pathEnv = System.getenv("PATH");
 
         while (true) {
             System.out.print("$ ");
@@ -49,7 +52,20 @@ public class Main {
 				}
 			}
 			if (indicator == 0) {
-				System.out.println(arrCmd[i] + ": not found");
+				int binIndicator = 0;
+				String[] paths = pathEnv.split(File.pathSeparator);
+				for (String path : paths) {
+					File file = new File(path,arrCmd[i]);
+
+					if (file.exits() && file.canExecute()) {
+						System.out.println(arrCmd[i] + " is " + file.getAbsolutePath());
+						binIndicator = 1;
+						break;
+					}
+				}
+				if (binIndicator == 0) {
+					System.out.println(arrCmd[i] + ": not found");
+				}
 			}
 		}
                 continue;
