@@ -48,10 +48,11 @@ public class Main {
 					indicator++;
 				}
 			}
-			if (!indicator) {
+			if (indicator == 0) {
 				System.out.println(arrCmd[i] + ": not found");
 			}
 		}
+                continue;
 	    }
             System.out.println(command + ": command not found");
         }
