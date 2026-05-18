@@ -3,8 +3,12 @@ import java.io.File;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-	     Scanner scanner = new Scanner(System.in);
+	Scanner scanner = new Scanner(System.in);
 	String pathEnv = System.getenv("PATH");
+
+	if (pathEnv == null) {
+	    pathEnv = "";
+	}
 
         while (true) {
             System.out.print("$ ");
@@ -57,7 +61,7 @@ public class Main {
 				for (String path : paths) {
 					File file = new File(path,arrCmd[i]);
 
-					if (file.exits() && file.canExecute()) {
+					if (file.exists() && file.canExecute()) {
 						System.out.println(arrCmd[i] + " is " + file.getAbsolutePath());
 						binIndicator = 1;
 						break;
