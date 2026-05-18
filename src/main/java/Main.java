@@ -73,8 +73,31 @@ public class Main {
 			}
 		}
                 continue;
-	    }
+	}
+
+	int execIndicator = 0;
+
+	String[] paths = pathEnv.split(File.pathSeparator);
+
+	for (String path : paths) {
+
+	    File file = new File(path, arrCmd[0]);
+
+	    if (file.exists() && file.canExecute()) {
+
+		executableIndicator = 1;
+		break;
+		}
+	}
+
+	    if (execIndicator == 1) {
+		ProcessBuilder pb = new ProcessBuilder(arrCmd);
+		pb.inheritIO();
+		Process p = pb.start();
+		p.waitFor();
+	    } else {
             System.out.println(command + ": command not found");
+	    }
         }
         scanner.close();
     }
