@@ -33,7 +33,7 @@ public class Main {
                 continue;
             }
 
-	    if (arrCmd[0].equals("type)) {
+	    if (arrCmd[0].equals("type")) {
 		int len = arrCmd.length;
 		if (len == 1) {
 			continue;
@@ -43,7 +43,7 @@ public class Main {
 		for (int i = 1; i < len; i++) {
 			int indicator = 0;
 			for (int j = 0; j < tbLen; j++) {
-				if (arrCmd[i].equals(totalBuiltin[j]) {
+				if (arrCmd[i].equals(totalBuiltin[j])) {
 					System.out.println(arrCmd[i] + " is a shell builtin");
 					indicator++;
 				}
