@@ -85,7 +85,7 @@ public class Main {
 
 	    if (file.exists() && file.canExecute()) {
 
-		executableIndicator = 1;
+		execIndicator = 1;
 		break;
 		}
 	}
