@@ -19,8 +19,11 @@ public class Main {
             }
 
             if (arrCmd[0].equals("echo")) {
-                for (int i = 1; i < arrCmd.length; i++) {
-                    System.out.print(arrCmd[i] + " ");
+		int len = arrCmd.length;
+                for (int i = 1; i < len; i++) {
+                    System.out.print(arrCmd[i]);
+		    if (len - 1 != i)
+			    System.out.print(" ");
                 }
                 System.out.println();
                 continue;
